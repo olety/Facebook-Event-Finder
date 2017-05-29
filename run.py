@@ -3,9 +3,9 @@ import json
 from flask import Flask, request
 
 import fbd
-
+url = input('DB URL')
 app = Flask(__name__)
-s = fbd.storage.Storage()
+s = fbd.Storage(url)
 
 
 @app.route('/places', methods=['GET'])
