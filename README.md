@@ -1,3 +1,3 @@
 # Facebook Event Finder
 
-Gets the event data from selected groups using facebook graph API.
+Hosts the event data obtained throug 'fbd' using flask
