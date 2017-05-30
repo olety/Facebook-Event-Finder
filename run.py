@@ -28,11 +28,11 @@ def show_events():
     if request.args.get('id', None):
         return s.get_event(request.args['id']).to_json()
     elif request.args.get('lat', None) and request.args.get('lon', None) and request.args.get('dist', None):
-        return json.dumps([_.to_dict() for _ in s.get_events_coords(float(request.args['lat']),
-                                                                    float(
-                                                                        request.args['lon']),
-                                                                    distance=float(request.args['dist']))],
-                          default=fbd.Storage.default_json_serializer)
+        return json.dumps([_ for _ in s.get_events_coords(
+            float(request.args['lat']),
+            float(request.args['lon']),
+            distance=float(request.args['dist']))],
+            default=fbd.Storage.default_json_serializer)
     else:
         return json.dumps(s.get_all_event_ids(), default=fbd.Storage.default_json_serializer)
 
